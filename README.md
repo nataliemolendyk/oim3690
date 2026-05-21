@@ -1,7 +1,21 @@
-# oim3690
-Course Work for OIM 3690 Summer 2026
 
-My name is Natalie Molendyk. I am excited for OIM 3690!
+# OIM3690 — AI-Powered Web Development
 
-## My Projects
-- [My Personal Website](https://<nataliemolendyk>.github.io/)
+- **Name**: Natalie Molendyk
+- **Semester**: Summer 2026
+
+This is my course repo for OIM3690. It holds class exercises, weekly logs, and links to all my projects.
+
+## Projects
+
+| Project | Repo | Live URL |
+|---------|------|----------|
+| Personal Website | [repo](https://github.com/nataliemolendyk/nataliemolendyk.github.io) | [live](https://nataliemolendyk.github.io) |
+| MP1 — Website for Someone Else | | |
+| MP2 — Interactive Web Tool | | |
+| MP3 — API-Powered App | | |
+| Final Project | | |
+
+## Weekly Logs
+
+See the [logs/](logs/) folder.
