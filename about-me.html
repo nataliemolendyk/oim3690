@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Natalie</title>
+
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Mobile-first navigation for pages without a full site header */
+    .topnav { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .topnav .logo { font-weight:700; color:#1a6b8a; text-decoration:none; font-size:1.05rem; }
+    .nav-links { list-style:none; margin:0; padding:0; display:none; flex-direction:column; gap:0.5rem; position:absolute; right:1rem; top:64px; background:#fff; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.08); padding:0.5rem; min-width:150px; }
+    .nav-links.open { display:flex; }
+    .nav-links a { display:block; color:inherit; text-decoration:none; padding:0.4rem 0.6rem; border-radius:6px; }
+    .nav-links a:hover, .nav-links a:focus { background: rgba(122,166,194,0.12); }
+    .nav-toggle { display:inline-block; background:none; border:none; padding:0.4rem; cursor:pointer; }
+    .nav-toggle .hamburger, .nav-toggle .hamburger::before, .nav-toggle .hamburger::after { content:""; display:block; width:22px; height:2px; background:#333; border-radius:2px; }
+    .nav-toggle .hamburger::before { transform: translateY(-6px); }
+    .nav-toggle .hamburger::after  { transform: translateY(4px); }
+    @media (min-width:701px) { .nav-links{ display:flex; position:static; flex-direction:row; gap:1rem; background:transparent; box-shadow:none; padding:0; min-width:0; } .nav-toggle{ display:none; } }
+  </style>
 
 </head>
 
@@ -12,16 +28,22 @@
 
   <!-- Header -->
   <header>
-    <h1>About Natalie</h1>
+    <div class="topnav" role="navigation" aria-label="Primary">
 
-    <nav>
-      <ul>
-        <li>
-          <a href="index.html">Home</a>
-        </li>
+      <div style="text-align:center;">
+        <h1 style="margin:0; font-size:1.25rem;">About Natalie</h1>
+      </div>
 
+      <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <ul id="primary-navigation" class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-me.html">About</a></li>
+        <li><a href="mailto:natalie@example.com">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
   <!-- Main Content -->
@@ -72,7 +94,7 @@
         <img
           src="images/san-francisco.jpg"
           alt="San Francisco skyline with the Bay Bridge at sunset"
-          width="500"
+          width="100%"
         >
 
         <figcaption>
@@ -85,7 +107,7 @@
         <img
           src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80"
           alt="London skyline with Big Ben and the River Thames"
-          width="500"
+          width="100%"
         >
 
         <figcaption>
@@ -118,6 +140,26 @@
     </p>
   </footer>
 
+  <script>
+    (function(){
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-navigation');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e){
+        if (!nav.classList.contains('open')) return;
+        const target = e.target;
+        if (!nav.contains(target) && !btn.contains(target)) {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
 
