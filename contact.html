@@ -1,0 +1,34 @@
+<!doctype html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/stylecontact.css">
+    <title>Contact</title>
+  </head>
+  <body>
+    <main class="container">
+      <form class="contact-form" action="https://oim.zhili.dev/echo/view" method="post" novalidate>
+        <fieldset>
+          <legend class="visually-hidden">Contact form</legend>
+
+          <label for="username">Name</label>
+          <input type="text" id="username" name="username" required aria-required="true" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required aria-required="true" />
+
+          <label for="contact-date">Preferred contact date <span class="field-help" id="date-help">(optional)</span></label>
+          <input type="date" id="contact-date" name="contact_date" aria-describedby="date-help" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6"></textarea>
+
+          <button class="btn" type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </main>
+  </body>
+</html>
