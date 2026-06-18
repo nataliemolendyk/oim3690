@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --cream: #f3eee2;
+        --cream-line: #ddd4ba;
+        --white: #ffffff;
+        --navy: #16213f;
+        --navy-soft: #5b6680;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 70px 20px;
+        background: var(--cream);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--navy);
+      }
+
+      .app {
+        width: 100%;
+        max-width: 440px;
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--navy-soft);
+      }
+
+      h1 {
+        font-family: "Fraunces", serif;
+        font-size: 32px;
+        font-weight: 600;
+        margin: 0 0 22px;
+        color: var(--navy);
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--cream-line);
+        box-shadow: 6px 6px 0 rgba(22, 33, 63, 0.07);
+      }
+
+      form {
+        display: flex;
+        border-bottom: 1px solid var(--cream-line);
+      }
+
+      #todoInput {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 18px 20px;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        color: var(--navy);
+      }
+
+      #todoInput::placeholder {
+        color: var(--navy-soft);
+      }
+
+      #dueInput {
+        border: none;
+        border-left: 1px solid var(--cream-line);
+        outline: none;
+        background: transparent;
+        padding: 0 14px;
+        width: 132px;
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        color: var(--navy-soft);
+      }
+
+      #dueInput:focus {
+        color: var(--navy);
+      }
+
+      #addBtn {
+        border: none;
+        background: var(--navy);
+        color: var(--cream);
+        padding: 0 24px;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      #addBtn:hover {
+        background: #0d1530;
+      }
+
+      ul#list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-height: 360px;
+        overflow-y: auto;
+      }
+
+      li.todo-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--cream-line);
+      }
+
+      li.todo-item:last-child {
+        border-bottom: none;
+      }
+
+      .checkbox {
+        width: 18px;
+        height: 18px;
+        border: 1.5px solid var(--navy);
+        border-radius: 2px;
+        flex-shrink: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        color: var(--cream);
+        font-size: 11px;
+        padding: 0;
+      }
+
+      .checkbox.checked {
+        background: var(--navy);
+      }
+
+      .todo-text {
+        flex: 1;
+        font-size: 15px;
+        word-break: break-word;
+        color: var(--navy);
+      }
+
+      .todo-text.completed {
+        text-decoration: line-through;
+        color: var(--navy-soft);
+      }
+
+      .due-date {
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--navy-soft);
+        white-space: nowrap;
+      }
+
+      .due-date.overdue {
+        color: var(--navy);
+        font-weight: 600;
+        text-decoration: underline;
+      }
+
+      .delete-btn {
+        border: none;
+        background: transparent;
+        color: var(--navy-soft);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .delete-btn:hover {
+        color: var(--navy);
+        text-decoration: underline;
+      }
+
+      .empty-state {
+        padding: 48px 20px;
+        text-align: center;
+        color: var(--navy-soft);
+        font-size: 13px;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--navy-soft);
+        border-top: 1px solid var(--cream-line);
+      }
+
+      .filters {
+        display: flex;
+        gap: 12px;
+      }
+
+      .filter-btn {
+        border: none;
+        background: transparent;
+        color: var(--navy-soft);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .filter-btn.active {
+        color: var(--navy);
+        text-decoration: underline;
+        text-decoration-thickness: 1.5px;
+      }
+
+      .clear-btn {
+        border: none;
+        background: transparent;
+        color: var(--navy-soft);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .clear-btn:hover {
+        color: var(--navy);
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <p class="eyebrow">Today</p>
+      <h1>To-Do</h1>
+      <div class="card">
+        <form id="todoForm">
+          <input
+            type="text"
+            id="todoInput"
+            placeholder="Add a task"
+            autocomplete="off"
+          />
+          <input type="date" id="dueInput" />
+          <button type="submit" id="addBtn">Add</button>
+        </form>
+
+        <ul id="list"></ul>
+
+        <div class="footer">
+          <span id="itemCount">0 tasks left</span>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Done</button>
+          </div>
+          <button class="clear-btn" id="clearCompletedBtn">Clear done</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="todo.js"></script>
+  </body>
+</html>
