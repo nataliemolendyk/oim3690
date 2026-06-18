@@ -21,8 +21,8 @@
         cursor: pointer;
         border: none;
         border-radius: 4px;
-        background: #007cba;
-        color: white;
+        background: lightgray;
+        color: navy;
       }
       button:hover {
         background: #005a8a;
@@ -39,6 +39,30 @@
         font-size: 30px;
         display: inline-block;
         cursor: pointer;
+      }
+      #eightBall {
+        font-size: 60px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      #eightBall.shaking {
+        animation: eightball-shake 0.6s ease-in-out;
+      }
+      @keyframes eightball-shake {
+        0%, 100% { transform: rotate(0deg); }
+        20% { transform: rotate(-15deg); }
+        40% { transform: rotate(15deg); }
+        60% { transform: rotate(-10deg); }
+        80% { transform: rotate(10deg); }
+      }
+      #eightBallAnswer {
+        font-weight: bold;
+        min-height: 1.2em;
+        opacity: 0;
+        transition: opacity 0.4s ease-in;
+      }
+      #eightBallAnswer.visible {
+        opacity: 1;
       }
     </style>
   </head>
@@ -73,17 +97,26 @@
 
     <div class="demo-section">
       <h3>5. The Surprise Button</h3>
-      <button onclick="surpriseMe()">I dare you to click on me!</button>
+      <button id="surpriseBtn">I dare you to click on me!</button>
     </div>
+
+    <div class="demo-section">
+      <h3>6. Magic 8-Ball 🎱</h3>
+      <p>Think of a yes/no question, then click the ball for your answer!</p>
+      <div id="eightBall" role="img" aria-label="magic 8-ball">🎱</div>
+      <button id="askBtn">Ask the 8-Ball</button>
+      <p id="eightBallAnswer"></p>
+    </div>
+
     <script>
       function changeBackgroundColor() {
         const bgColors = [
-          "#FFE5E5",
-          "#E5F3FF",
-          "#E5FFE5",
-          "#FFF5E5",
-          "#F0E5FF",
-          "#FFE5F0",
+          "#000080",// navy
+          "#ADD8E6", // lightblue
+          "#008080", // teal
+          "#4169E1", // royalblue
+          "#708090", // steelblue
+          "#B0C4DE" // powderblue
         ];
         const n = bgColors.length;
         const randIndex = Math.floor(Math.random() * n);
@@ -109,6 +142,7 @@
       });
 
       document.getElementById("timeBtn").addEventListener("click", () => {
+        console.log("⏰ Time button clicked!");
         const now = new Date();
         const timeString = now.toLocaleTimeString();
         const dateString = now.toLocaleDateString();
@@ -139,6 +173,47 @@
           window.open("https://youtu.be/dQw4w9WgXcQ", "_blank");
         }
       }
+
+      document
+        .getElementById("surpriseBtn")
+        .addEventListener("click", surpriseMe);
+
+      // --- Magic 8-Ball ---
+      const eightBallAnswers = [
+        "Yes, definitely.",
+        "It is certain.",
+        "Without a doubt.",
+        "You may rely on it.",
+        "Signs point to yes.",
+        "Reply hazy, try again.",
+        "Ask again later.",
+        "Cannot predict now.",
+        "Concentrate and ask again.",
+        "Don't count on it.",
+        "My reply is no.",
+        "Outlook not so good.",
+        "Very doubtful."
+      ];
+      const eightBall = document.getElementById("eightBall");
+      const eightBallAnswer = document.getElementById("eightBallAnswer");
+
+      function askEightBall() {
+        eightBallAnswer.classList.remove("visible");
+        eightBall.classList.add("shaking");
+
+        setTimeout(() => {
+          eightBall.classList.remove("shaking");
+          const answer =
+            eightBallAnswers[
+              Math.floor(Math.random() * eightBallAnswers.length)
+            ];
+          eightBallAnswer.textContent = "🔮 " + answer;
+          eightBallAnswer.classList.add("visible");
+        }, 600);
+      }
+
+      document.getElementById("askBtn").addEventListener("click", askEightBall);
+      eightBall.addEventListener("click", askEightBall);
 
       document.addEventListener("DOMContentLoaded", function () {
         console.log("🎮 Welcome to JavaScript Playground!");
