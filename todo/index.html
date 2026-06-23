@@ -10,9 +10,7 @@
       rel="stylesheet"
     />
     <style>
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       :root {
         --cream: #f3eee2;
@@ -33,10 +31,7 @@
         color: var(--navy);
       }
 
-      .app {
-        width: 100%;
-        max-width: 440px;
-      }
+      .app { width: 100%; max-width: 440px; }
 
       .eyebrow {
         margin: 0 0 6px;
@@ -76,9 +71,7 @@
         color: var(--navy);
       }
 
-      #todoInput::placeholder {
-        color: var(--navy-soft);
-      }
+      #todoInput::placeholder { color: var(--navy-soft); }
 
       #dueInput {
         border: none;
@@ -92,9 +85,7 @@
         color: var(--navy-soft);
       }
 
-      #dueInput:focus {
-        color: var(--navy);
-      }
+      #dueInput:focus { color: var(--navy); }
 
       #addBtn {
         border: none;
@@ -109,9 +100,7 @@
         cursor: pointer;
       }
 
-      #addBtn:hover {
-        background: #0d1530;
-      }
+      #addBtn:hover { background: #0d1530; }
 
       ul#list {
         list-style: none;
@@ -129,9 +118,7 @@
         border-bottom: 1px solid var(--cream-line);
       }
 
-      li.todo-item:last-child {
-        border-bottom: none;
-      }
+      li.todo-item:last-child { border-bottom: none; }
 
       .checkbox {
         width: 18px;
@@ -149,9 +136,7 @@
         padding: 0;
       }
 
-      .checkbox.checked {
-        background: var(--navy);
-      }
+      .checkbox.checked { background: var(--navy); }
 
       .todo-text {
         flex: 1;
@@ -215,10 +200,7 @@
         border-top: 1px solid var(--cream-line);
       }
 
-      .filters {
-        display: flex;
-        gap: 12px;
-      }
+      .filters { display: flex; gap: 12px; }
 
       .filter-btn {
         border: none;
@@ -260,18 +242,11 @@
       <h1>To-Do</h1>
       <div class="card">
         <form id="todoForm">
-          <input
-            type="text"
-            id="todoInput"
-            placeholder="Add a task"
-            autocomplete="off"
-          />
+          <input type="text" id="todoInput" placeholder="Add a task" autocomplete="off" />
           <input type="date" id="dueInput" />
           <button type="submit" id="addBtn">Add</button>
         </form>
-
         <ul id="list"></ul>
-
         <div class="footer">
           <span id="itemCount">0 tasks left</span>
           <div class="filters">
@@ -283,7 +258,6 @@
         </div>
       </div>
     </div>
-
-    <script src="todo.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
