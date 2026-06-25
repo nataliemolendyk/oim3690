@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Calculator</title>
+  <link rel="stylesheet" href="css/discount.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <h1>Discount Calculator</h1>
+    <p>See how much you can save!</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Discount Calculator</h2>
+      <p>Enter your order total and check if you're a member to see your discount.</p>
+
+      <div class="form-group">
+        <label for="totalInput">Order Total ($)</label>
+        <input type="number" id="totalInput" min="0" step="0.01" placeholder="0.00">
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="memberCheck">
+        <label for="memberCheck">I am a member</label>
+      </div>
+
+      <button id="calcBtn" class="btn-calculate">Calculate Discount</button>
+
+      <div id="results" class="results-card hidden">
+        <h3>Your Savings</h3>
+        <div class="result-row">
+          <span class="result-label">Discount Rate</span>
+          <span id="discountRate" class="result-value">0%</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Discount Amount</span>
+          <span id="discountAmt" class="result-value">$0.00</span>
+        </div>
+        <div class="result-row final">
+          <span class="result-label">Final Price</span>
+          <span id="finalPrice" class="result-value">$0.00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Discount Policy</h2>
+      <ul class="policy-list">
+        <li><strong>$100+ and member:</strong> 20% off</li>
+        <li><strong>$100+ OR member:</strong> 10% off</li>
+        <li><strong>Otherwise:</strong> No discount</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 &middot; Discount Calculator</p>
+  </footer>
+
+  <script>
+    (function(){
+
+      // ----- Discount Calculator Logic -----
+      function getDiscount(total, isMember) {
+        if (total >= 100 && isMember) {
+          return 20;
+        } else if (total >= 100 || isMember) {
+          return 10;
+        } else {
+          return 0;
+        }
+      }
+
+      const totalInput = document.getElementById('totalInput');
+      const memberCheck = document.getElementById('memberCheck');
+      const calcBtn = document.getElementById('calcBtn');
+      const results = document.getElementById('results');
+      const discountRateEl = document.getElementById('discountRate');
+      const discountAmtEl = document.getElementById('discountAmt');
+      const finalPriceEl = document.getElementById('finalPrice');
+
+      calcBtn.addEventListener('click', function(){
+        const total = parseFloat(totalInput.value);
+        if (isNaN(total) || total < 0) {
+          alert('Please enter a valid order total.');
+          return;
+        }
+        const isMember = memberCheck.checked;
+        const rate = getDiscount(total, isMember);
+        const discountAmt = (rate / 100) * total;
+        const finalPrice = total - discountAmt;
+
+        discountRateEl.textContent = rate + '%';
+        discountAmtEl.textContent = '$' + discountAmt.toFixed(2);
+        finalPriceEl.textContent = '$' + finalPrice.toFixed(2);
+
+        results.classList.remove('hidden');
+      });
+
+      // Allow Enter key to trigger calculation
+      totalInput.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') calcBtn.click();
+      });
+    })();
+  </script>
+
+</body>
+</html>

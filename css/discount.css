@@ -1,0 +1,223 @@
+/* ── Discount Calculator Styles ─────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  color: #1e2a3a;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.page-header {
+  background: #1e2a3a;
+  padding: 1.75rem 1rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #fffbe6;
+}
+
+.page-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #d4c98a;
+}
+
+/* Container */
+.container {
+  width: 92%;
+  max-width: 680px;
+  margin: 2rem auto;
+  flex: 1;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border: 1px solid #d4c98a;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.card h2 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e2a3a;
+}
+
+.card > p {
+  margin: 0 0 1rem 0;
+  color: #1e2a3a;
+  font-size: 0.9rem;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e2a3a;
+  margin-bottom: 0.3rem;
+}
+
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  color: #1e2a3a;
+  background: #fffdf2;
+  border: 1.5px solid #d4c98a;
+}
+
+.form-group input[type="number"]:focus {
+  outline: none;
+  border-color: #1e2a3a;
+  background: #ffffff;
+}
+
+.form-group input[type="number"]::placeholder {
+  color: #b8ae7a;
+}
+
+/* Checkbox */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #1e2a3a;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: #1e2a3a;
+  cursor: pointer;
+}
+
+/* Button */
+.btn-calculate {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fffbe6;
+  background: #1e2a3a;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-calculate:hover {
+  background: #2a3a4e;
+}
+
+.btn-calculate:active {
+  background: #151f2b;
+}
+
+/* Results */
+.results-card {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #fffdf2;
+  border: 1px solid #d4c98a;
+}
+
+.results-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e2a3a;
+  border-bottom: 1px solid #d4c98a;
+  padding-bottom: 0.5rem;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+}
+
+.result-label {
+  color: #5a6a7a;
+}
+
+.result-value {
+  font-weight: 600;
+  color: #1e2a3a;
+}
+
+.result-row.final {
+  border-top: 1px solid #e8e0b8;
+  margin-top: 0.25rem;
+  padding-top: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.result-row.final .result-label {
+  color: #1e2a3a;
+  font-weight: 700;
+}
+
+.result-row.final .result-value {
+  color: #1e2a3a;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Policy list */
+.policy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.policy-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0e8c8;
+  font-size: 0.9rem;
+  color: #3a4a5a;
+}
+
+.policy-list li:last-child {
+  border-bottom: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.25rem;
+  color: #8a8a6a;
+  font-size: 0.8rem;
+  border-top: 1px solid #e8e0b8;
+}
+
+/* Hidden utility */
+.hidden {
+  display: none !important;
+}
