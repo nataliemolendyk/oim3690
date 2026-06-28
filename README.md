@@ -12,7 +12,7 @@ This is my course repo for OIM3690. It holds class exercises, weekly logs, and l
 |---------|------|----------|
 | Personal Website | [repo](https://github.com/nataliemolendyk/nataliemolendyk.github.io) | [live](https://nataliemolendyk.github.io) |
 | MP1 — Website for Someone Else | [repo](https://github.com/nataliemolendyk/mini-project-one) | [live](https://nataliemolendyk.github.io/mini-project-one/) |
-| MP2 — Interactive Web Tool | | |
+| MP2 — Interactive Web Tool |[repo](https://github.com/nataliemolendyk/workout-tracker) | [live](https://nataliemolendyk.github.io/workout-tracker/)|
 | MP3 — API-Powered App | | |
 | Final Project | | |
 
