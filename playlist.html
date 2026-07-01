@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist</title>
+  <link rel="stylesheet" href="css/playlist.css">
+</head>
+<body>
+
+  <header>
+    <div class="topnav" role="navigation" aria-label="Primary">
+      <div style="text-align:center; color:white;">
+        <h1 style="margin:0; font-size:1.25rem;">My Playlist</h1>
+        <div style="font-size:0.95rem;">Songs I'm loving right now</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <h2>Song List</h2>
+      <div class="add-row">
+        <input type="text" id="songInput" placeholder="Enter a song title">
+        <button id="addBtn">Add Song</button>
+      </div>
+      <ul id="playlist"></ul>
+    </section>
+  </div>
+
+  <script src="js/playlist.js"></script>
+</body>
+</html>
