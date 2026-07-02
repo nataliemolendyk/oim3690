@@ -1,0 +1,114 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.7;
+  background: #f6e1c0;
+  color: #4a3020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-header {
+  width: 100%;
+  padding: 1.75rem 2rem;
+  background: #9d6a3f;
+  text-align: center;
+}
+
+.page-title h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  letter-spacing: -0.03em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.page-title p {
+  margin: 0.5rem 0 0;
+  color: #f4e1c8;
+  font-size: 1.05rem;
+}
+
+.page-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
+}
+
+.card {
+  width: min(560px, 100%);
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(138, 95, 59, 0.2);
+  box-shadow: 0 18px 45px rgba(107, 73, 39, 0.12);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  margin: 0;
+  padding: 0.95rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: #b2845d;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(90, 50, 20, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+button:hover,
+button:focus {
+  transform: translateY(-1px);
+  background: #9f6f3e;
+  box-shadow: 0 12px 24px rgba(90, 50, 20, 0.24);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#output {
+  display: inline-block;
+  margin: 1.5rem auto 0;
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(138, 95, 59, 0.18);
+  box-shadow: 0 10px 30px rgba(107, 73, 39, 0.08);
+  max-width: 520px;
+  min-width: 280px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.dog-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #d7b48b;
+}
+
+.error {
+  color: #8c2f11;
+  margin-top: 1rem;
+  font-weight: 600;
+}
