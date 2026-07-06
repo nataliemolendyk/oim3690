@@ -1,0 +1,156 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f8f9fb;
+  --text: #000000;
+  --muted: #4b5563;
+  --accent: #2563eb;
+  --accent-2: #1d4ed8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.chat-app {
+  width: min(860px, 100%);
+  min-height: min(760px, 100vh - 2rem);
+  background: var(--panel);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: transparent;
+}
+
+.chat-header h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.chat-header p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.page-header {
+  width: min(860px, 100%);
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: var(--text);
+  border: none;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.page-header p {
+  margin: 0.5rem 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.messages {
+  flex: 1;
+  padding: 1.1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  scroll-behavior: smooth;
+}
+
+.message {
+  max-width: 78%;
+  padding: 0.8rem 1rem;
+  border-radius: 0;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: #f8f9fb;
+  color: #000000;
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+}
+
+.message .label {
+  display: block;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+  opacity: 0.75;
+}
+
+.composer {
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.composer input {
+  flex: 1;
+  border: 1px solid #000000;
+  outline: none;
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  background: #ffffff;
+  color: #000000;
+  font-size: 1rem;
+}
+
+.composer button {
+  border: 1px solid #000000;
+  border-radius: 0;
+  padding: 0.8rem 1.15rem;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.composer button:hover {
+  filter: brightness(0.95);
+}
+
+.composer button:active {
+  transform: translateY(1px);
+}

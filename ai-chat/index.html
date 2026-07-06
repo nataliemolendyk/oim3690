@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Chat Assistant</h1>
+    <p>Ask a question and the chat history remains visible with the newest message at the bottom.</p>
+  </header>
+
+  <main class="chat-app">
+    <section class="messages" id="messages" aria-live="polite"></section>
+
+    <form class="composer" id="chat-form">
+      <input id="message-input" type="text" placeholder="Type your message..." autocomplete="off" />
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
