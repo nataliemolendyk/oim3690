@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Mode</title>
+  <link rel="stylesheet" href="css/dark-mode.css" />
+</head>
+<body>
+
+  <div class="card">
+
+    <h1>🌙 Dark Mode Demo</h1>
+
+    <p>
+      This page remembers your theme preference. Click the <strong>toggle</strong> button
+      below to switch between light and dark&nbsp;mode. The choice is saved in
+      <code>localStorage</code> and restored automatically on your next visit.
+    </p>
+
+    <!-- Dark Mode Toggle -->
+    <button class="toggle-btn" id="darkToggle">🌙  Switch to Dark Mode</button>
+
+    <hr />
+
+    <!-- ⏱ Countdown Timer -->
+    <div class="feature">
+      <label class="feature-label">⏱ Countdown</label>
+      <div class="countdown-row">
+        <input type="number" class="countdown-input" id="countdownInput"
+               value="30" min="1" max="999" />
+        <button class="feature-btn" id="countdownStartBtn">Start</button>
+        <button class="feature-btn secondary" id="countdownResetBtn">Reset</button>
+      </div>
+      <p class="countdown-display" id="countdownDisplay">30</p>
+    </div>
+
+    <!-- 🔊 Text‑to‑Speech -->
+    <div class="feature">
+      <label class="feature-label">🔊 Text‑to‑Speech</label>
+      <textarea class="tts-textarea" id="ttsText" rows="3"
+        >Hello! This is a dark mode demo with text‑to‑speech.</textarea>
+      <div class="tts-row">
+        <button class="feature-btn" id="ttsPlayBtn">▶ Play</button>
+        <button class="feature-btn secondary" id="ttsStopBtn">■ Stop</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/dark-mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+/* ===========================================================
+   Dark Mode — Pale‑yellow & navy theme
+   =========================================================== */
+
+/* ---------- Light tokens (default) ---------- */
+:root {
+  --bg:          #fef9e0;   /* pale yellow    */
+  --text:        #0a0a3e;   /* navy           */
+  --card-bg:     #ffffff;
+  --card-border: #d0c8a0;
+  --btn-bg:      #0a0a3e;
+  --btn-text:    #fef9e0;
+  --btn-border:  #0a0a3e;
+  --btn-hover:   #1a1a5e;
+  --accent:      #0a0a3e;
+  --shadow:      0 8px 30px rgba(10, 10, 62, 0.10);
+  --hr-color:    #d0c8a0;
+
+  --feature-btn-bg:   #0a0a3e;
+  --feature-btn-text: #fef9e0;
+  --feature-btn-hover:#1a1a5e;
+
+  --input-bg:     #fffdf0;
+  --input-border: #d0c8a0;
+  --input-text:   #0a0a3e;
+
+  --code-bg:      rgba(10, 10, 62, 0.06);
+}
+
+/* ---------- Dark tokens ---------- */
+body.dark {
+  --bg:          #0a0a3e;   /* navy           */
+  --text:        #fef9e0;   /* pale yellow    */
+  --card-bg:     #121252;
+  --card-border: #2a2a6e;
+  --btn-bg:      #fef9e0;
+  --btn-text:    #0a0a3e;
+  --btn-border:  #fef9e0;
+  --btn-hover:   #f5eecc;
+  --accent:      #fef9e0;
+  --shadow:      0 8px 30px rgba(0, 0, 0, 0.5);
+  --hr-color:    #2a2a6e;
+
+  --feature-btn-bg:   #fef9e0;
+  --feature-btn-text: #0a0a3e;
+  --feature-btn-hover:#f5eecc;
+
+  --input-bg:     #1a1a5e;
+  --input-border: #2a2a6e;
+  --input-text:   #fef9e0;
+
+  --code-bg:      rgba(254, 249, 224, 0.10);
+}
+
+/* ---------- Reset & base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* ---------- Typography ---------- */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.88;
+}
+
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  font-size: 0.9em;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid var(--hr-color);
+  margin: 1.75rem 0;
+  transition: border-color 0.3s;
+}
+
+/* ---------- Dark‑mode toggle ---------- */
+.toggle-btn {
+  margin-top: 1.5rem;
+  padding: 0.85rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.15s;
+}
+
+.toggle-btn:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+.toggle-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- Feature sections ---------- */
+.feature {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.feature:last-child {
+  margin-bottom: 0;
+}
+
+.feature-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Feature buttons ---------- */
+.feature-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid var(--btn-border);
+  background: var(--feature-btn-bg);
+  color: var(--feature-btn-text);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.15s;
+}
+
+.feature-btn:hover {
+  background: var(--feature-btn-hover);
+  transform: translateY(-1px);
+}
+
+.feature-btn:active {
+  transform: translateY(0);
+}
+
+.feature-btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--card-border);
+}
+
+.feature-btn.secondary:hover {
+  background: var(--btn-hover);
+}
+
+/* ---------- Inputs / textareas ---------- */
+.countdown-input,
+.tts-textarea {
+  background: var(--input-bg);
+  color: var(--input-text);
+  border: 2px solid var(--input-border);
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.countdown-input:focus,
+.tts-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Countdown row */
+.countdown-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.countdown-input {
+  width: 80px;
+  text-align: center;
+}
+
+.countdown-display {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* TTS row */
+.tts-textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.tts-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
