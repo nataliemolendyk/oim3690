@@ -14,7 +14,7 @@ This is my course repo for OIM3690. It holds class exercises, weekly logs, and l
 | MP1 — Website for Someone Else | [repo](https://github.com/nataliemolendyk/mini-project-one) | [live](https://nataliemolendyk.github.io/mini-project-one/) |
 | MP2 — Interactive Web Tool |[repo](https://github.com/nataliemolendyk/workout-tracker) | [live](https://nataliemolendyk.github.io/workout-tracker/)|
 | MP3 — API-Powered App |[repo](https://github.com/nataliemolendyk/hotel-finder) | [live](https://nataliemolendyk.github.io/hotel-finder/)|
-| Final Project | | |
+| Final Project |[repo](https://github.com/nataliemolendyk/pet-adoption) | [live](https://nataliemolendyk.github.io/pet-adoption/)|
 
 ## Weekly Logs
 
